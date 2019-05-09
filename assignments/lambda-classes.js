@@ -55,7 +55,7 @@ class Student extends Person{
         return `${this.name} has submitted a PR for ${subject}`;
     }
 
-    sprintChallenge(){
+    sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 
@@ -76,28 +76,55 @@ class ProjectManager extends Instructor{
         return `${this.name} announces to ${channel}, @channel standy times!​​​​​`
     }
 
-    debugCode(student){
-        return `${this.name} debugs ${student.name}'s code on ${student.subject}`
+    debugCode(student, subject){
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
 const fred = new Student({
     name: 'Fred',
     age: 37,
-    location: 'Bedrock'
+    location: 'Bedrock',
+    favSubjects:['PHP', 'React-Native']
   });
 
-  const james = new Instructor({
+  const barney = new Student({
+    name: 'Barney',
+    age: 35,
+    location: 'Acroos the street from Fred',
+    favSubjects:['Node.JS', '.NET']
+  });
+
+  const dan = new Instructor({
     name: 'Mr. James',
     age: 42,
-    location: 'Bedrock'
+    location: 'Bedrock',
+    specialty: 'Cats',
+    favLanguage: 'React',
+    catchPhrase:'Dont Cat-cha cold'
   });
 
-  const Sir = new ProjectManager({
+  const aman = new ProjectManager({
     name: 'Aman',
     age: 33,
-    location: 'Lambda'
+    location: 'Lambda',
+    specialty: 'Patience',
+    favLanguage: 'React',
+    catchPhrase:'Thats\'s awesome',
+    gradClassName: 'I\'m awesome',
+    favInstructor: 'I think I am pretty good if I do say so myself'
   });
 
   console.log(fred.speak());
+  console.log(aman.catchPhrase)
   console.log(fred.graduate());
+  console.log(dan.demo('javascript'));
+  console.log(dan.grade(fred, 'CSS Fundamentals'));
+  console.log(fred.grade);
+  console.log(aman.score(fred));
+  console.log(fred.listSubjects());
+  console.log(barney.PRAssignment('Javascript II'));
+  console.log(barney.sprintChallenge('Advanced CSS'));
+  console.log(aman.standUp('Web_20_Holla_Holla'));
+  console.log(aman.debugCode(barney, 'Preprocessing II'));
+

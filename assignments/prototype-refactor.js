@@ -224,9 +224,17 @@ class Hero extends Humanoid{
   
   
     function epicBattle(){
-      let defeat = 0;
+      turn = 1;
+
+      if(turn == 1){
+          //hero turn
+          
+      }else{
+          //villan turn
+      }
   
       while(villan.healthPoints > 0){
+
         console.log(hero.BlazeofGlory());
         if(villan.healthPoints <= 0){
           console.log(villan.destroy());
